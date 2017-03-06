@@ -5,13 +5,15 @@ BASEDIR=~/juju
 DIR=$1
 REST=${@:2}
 
-if [[ $DIR == /* ]]; then
+if [[ $DIR == . ]]; then
+    PACKAGE=$(pwd)
+elif [[ $DIR == /* ]]; then
     PACKAGE=$DIR
 else
     PACKAGE=$BASEDIR/$DIR
 fi
 
-CMD="go test -check.v"
+CMD="go test -i -check.v"
 if [ "$#" -gt 1 ]; then
     CMD="$CMD -check.f $REST"
 fi
