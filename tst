@@ -13,13 +13,16 @@ else
     PACKAGE=$BASEDIR/$DIR
 fi
 
-CMD="go test -i -check.v"
+INSTALL="go test -i"
+CMD="go test -check.v"
 if [ "$#" -gt 1 ]; then
     CMD="$CMD -check.f $REST"
 fi
 
 echo $PACKAGE
+echo $INSTALL
 echo $CMD
 
 cd $PACKAGE
+$INSTALL
 time $CMD
