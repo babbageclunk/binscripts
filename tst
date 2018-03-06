@@ -13,7 +13,7 @@ else
     PACKAGE=$BASEDIR/$DIR
 fi
 
-INSTALL="go test -i"
+INSTALL="go test -i -v"
 CMD="go test -check.v"
 if [ "$#" -gt 1 ]; then
     CMD="$CMD -check.f $REST"
